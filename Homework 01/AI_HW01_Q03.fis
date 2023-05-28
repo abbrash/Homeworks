@@ -1,0 +1,45 @@
+[System]
+Name='Newone'
+Type='mamdani'
+Version=2.0
+NumInputs=1
+NumOutputs=1
+NumRules=7
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Angular_Velocity'
+Range=[-100 100]
+NumMFs=7
+MF1='NH':'trapmf',[-100 -100 -90 -70]
+MF2='NM':'trapmf',[-90 -75 -65 -50]
+MF3='NL':'trapmf',[-60 -40 -30 -10]
+MF4='JR':'trapmf',[-20 -5 5 20]
+MF5='PL':'trapmf',[10 30 40 60]
+MF6='PM':'trapmf',[50 65 75 90]
+MF7='PH':'trapmf',[70 90 100 100]
+
+[Output1]
+Name='Voltage'
+Range=[-120 120]
+NumMFs=7
+MF1='JR':'trapmf',[-25 -10 10 25]
+MF2='NH':'trapmf',[-120 -120 -90 -70]
+MF3='PH':'trapmf',[70 90 120 120]
+MF4='NM':'trapmf',[-90 -80 -50 -40]
+MF5='PM':'trapmf',[40 50 80 90]
+MF6='PL':'trapmf',[10 30 40 60]
+MF7='NL':'trapmf',[-60 -40 -30 -10]
+
+[Rules]
+1, 3 (1) : 1
+2, 5 (1) : 1
+3, 6 (1) : 1
+4, 1 (1) : 1
+5, 7 (1) : 1
+6, 4 (1) : 1
+7, 2 (1) : 1
